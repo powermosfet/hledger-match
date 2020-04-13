@@ -22,11 +22,19 @@ description:         Please see the README on GitHub at <https://github.com/gith
 dependencies:
 - base >= 4.7 && < 5
 
+default-extensions:
+  - OverloadedStrings
+  - NoImplicitPrelude
+
 library:
   source-dirs: src
+  dependencies:
+    - hledger-lib
+    - relude
+    - text
 
 executables:
-  hledger-find-unmatched-exe:
+  findunmatched:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -35,6 +43,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - hledger-find-unmatched
+    - relude
 
 tests:
   hledger-find-unmatched-test:
