@@ -50,7 +50,6 @@ findMatchRecursively accountQuery (tx:txs) = do
             let newTxs = removeSingle (accountAmountIs accountQuery (negate amount)) txs
             if length newTxs == length txs then do
                 putStrLn (showTransaction tx)
-                putStrLn ""
                 findMatchRecursively accountQuery txs
             else 
                 findMatchRecursively accountQuery newTxs
