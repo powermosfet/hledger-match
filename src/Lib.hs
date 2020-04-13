@@ -1,6 +1,6 @@
 module Lib
-    ( someFunc
+    ( findUnmatched
     ) where
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+findUnmatched :: IO ()
+findUnmatched = putStrLn "findUnmatched"
