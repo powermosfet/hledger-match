@@ -1,3 +1,3 @@
-# Changelog for hledger-find-unmatched
+# Changelog for hledger-match
 
 ## Unreleased changes

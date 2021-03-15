@@ -1,4 +1,4 @@
-# hledger-find-unmatched
+# hledger-match
 
 If you track transfers between accounts using a intermediate account, it can sometimes be tricky to figure why its balance is not zero.
 
