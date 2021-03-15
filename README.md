@@ -7,7 +7,7 @@ All transactions into the transfer account should have an equal, opposite transa
 This simple tool takes data from standard input, and prints any transactions that do not form such a pair with another transaction:
 
 ```
-% hledger print -p thismonth | findunmatched assets:transfer
+% hledger print -p thismonth | hledger match assets:transfer
 
 2020/02/03 Some kind of transfer
     assets:bank:mybank:savings       -78.85 EUR
