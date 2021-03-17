@@ -1,6 +1,6 @@
 module Main where
 
-import Relude
+import Relude 
 
 import System.IO (hPutStrLn)
 import System.Environment (getArgs)

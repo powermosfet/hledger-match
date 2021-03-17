@@ -4,9 +4,10 @@ module Lib
 
 import Relude
 
-import Hledger (Transaction(..), MixedAmount, jtxns, pamount, showTransaction)
+import Hledger (Transaction(..), MixedAmount, jtxns, pamount, showTransaction, toRegex')
 import Hledger.Read (readJournal, InputOpts(..), definputopts)
 import Hledger.Query (Query(..), matchesTransaction, matchesPosting)
+import qualified Data.Text as T
 import Data.Text.IO (getContents)
 
 inputOptions :: InputOpts
@@ -19,7 +20,7 @@ findUnmatched account = do
     case result of
         Left err -> putStrLn err
         Right j -> do
-            let accountQuery = Acct account
+            let accountQuery = Acct (toRegex' account)
             let interestingTxns = filter (matchesTransaction accountQuery) (jtxns j)
             findMatchRecursively accountQuery interestingTxns
 
