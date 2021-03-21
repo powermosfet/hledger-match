@@ -1,5 +1,3 @@
-let
-  pkgs = import <nixpkgs> { };
+{ pkgs ? import <nixpkgs> { } }:
 
-in
 pkgs.haskellPackages.callPackage ./hledger-match.nix { }
