@@ -13,4 +13,4 @@ main = do
     let mAccount = viaNonEmpty head args
     case mAccount of
         Just account -> findUnmatched $ T.pack account
-        Nothing -> hPutStrLn stderr "Usage: findunmatched <account>"
+        Nothing -> hPutStrLn stderr "Usage: hledger match <account>"
