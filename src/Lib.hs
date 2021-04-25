@@ -8,15 +8,15 @@ import Hledger (Transaction(..), MixedAmount, jtxns, pamount, showTransaction, t
 import Hledger.Read (readJournal, InputOpts(..), definputopts)
 import Hledger.Query (Query(..), matchesTransaction, matchesPosting)
 import qualified Data.Text as T
-import Data.Text.IO (getContents)
+import qualified Data.Text.IO as T
 
 inputOptions :: InputOpts
 inputOptions =
     definputopts { ignore_assertions_ = True }
 
-findUnmatched ::String -> IO ()
+findUnmatched :: Text -> IO ()
 findUnmatched account = do
-    result <- getContents >>= readJournal inputOptions Nothing
+    result <- T.getContents >>= readJournal inputOptions Nothing
     case result of
         Left err -> putStrLn err
         Right j -> do
@@ -50,7 +50,7 @@ findMatchRecursively accountQuery (tx:txs) = do
         Just amount -> do
             let newTxs = removeSingle (accountAmountIs accountQuery (negate amount)) txs
             if length newTxs == length txs then do
-                putStrLn (showTransaction tx)
+                T.putStrLn (showTransaction tx)
                 findMatchRecursively accountQuery txs
             else 
                 findMatchRecursively accountQuery newTxs

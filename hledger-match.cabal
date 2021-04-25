@@ -51,6 +51,7 @@ executable hledger-match
   build-depends:
       base >=4.7 && <5
     , hledger-match
+    , text
     , relude
   default-language: Haskell2010
 

@@ -1,4 +1,4 @@
-{ mkDerivation, base, hledger-lib, relude, stdenv, text }:
+{ mkDerivation, base, hledger-lib, lib, relude, text }:
 mkDerivation {
   pname = "hledger-match";
   version = "0.1.0.0";
@@ -6,8 +6,8 @@ mkDerivation {
   isLibrary = true;
   isExecutable = true;
   libraryHaskellDepends = [ base hledger-lib relude text ];
-  executableHaskellDepends = [ base relude ];
-  testHaskellDepends = [ base ];
+  executableHaskellDepends = [ base relude text ];
+  testHaskellDepends = [ base relude ];
   homepage = "https://github.com/powermosfet/hledger-match#readme";
-  license = stdenv.lib.licenses.bsd3;
+  license = lib.licenses.bsd3;
 }
